@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Stay TG. Selor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+    <div style="display:flex; align-items:center; gap:10px;">
+    <img src="images/logo/logo.png" alt="Logo" class="logo-img">
+    <h1>Home Stay Plenger</h1>
+</div>
+
+    <nav class="navbar">
+         <a href="#" onclick="showSection('beranda')">Beranda</a> 
+         <a href="#" onclick="showSection('booking')">Booking</a> 
+         <a href="#" onclick="showSection('management')">Management</a> 
+         <a href="#" onclick="showSection('datatamu')">Data Tamu</a> 
+         <a href="#" onclick="showSection('check')">Check In Out</a> 
+         <a href="#" onclick="showSection('pengeluaran')">Pengeluaran</a>
+         <a href="#" onclick="showSection('laporan')">Laporan</a> 
+        </nav>
+</header>
+
+<main class="container">
+
+<section id="beranda" class="page active">
+    <h2>Pilih Tempat</h2>
+    <div class="cards">
+        <div class="card" onclick="openDetail('luminor')">
+            <img src="images//luminor/hotel.jpg">
+            <p>Hotel Luminor</p>
+        </div>
+
+        <div class="card" onclick="openDetail('pangeran')">
+            <img src="images/pangeran-khar/khar.webp">
+            <p>Hotel Pangeran Khar</p>
+        </div>
+
+        <div class="card" onclick="openDetail('crown')">
+            <img src="images/crown/Hotel Crown Bulungan.jpg">
+            <p>Hotel Crown</p>
+        </div>
+        <div class="card" onclick="openDetail('anugerah')">
+            <img src="images/anugerah/hotel.jpg">
+            <p>Hotel</p>
+        </div>
+    </div>
+</section>
+
+<section id="detail" class="page">
+    <h2 id="dNama"></h2>
+    <div class="gallery" id="dGallery"></div>
+    <p>Alamat: <span id="dAlamat"></span></p>
+    <p>Jam Operasional: <span id="dJam"></span></p>
+    <p>Harga: <span id="dHarga"></span></p>
+    <p>Keterangan: <span id="dInfo"></span></p>
+    <button onclick="showSection('booking')">Booking Tempat Ini</button>
+</section>
+
+<section id="booking" class="page">
+    <h2>Booking</h2>
+    <p>Tempat: <span id="bTempat">-</span></p>
+    <input id="bNama" type="text" placeholder="Nama Tamu">
+    <input id="bTanggal" type="date">
+    <input id="bMalam" type="number" placeholder="Jumlah Malam">
+    <button onclick="tambahBooking()">Simpan</button>
+</section>
+
+<section id="management" class="page">
+    <h2>Management</h2>
+    <input id="mNama" type="text" placeholder="Nama Properti">
+    <input id="mHarga" type="number" placeholder="Harga">
+    <button onclick="tambahProperti()">Tambah Properti</button>
+
+    <table border="1" width="100%" style="margin-top:10px;">
+        <thead>
+            <tr>
+                <th>Nama Properti</th>
+                <th>Harga</th>
+            </tr>
+        </thead>
+        <tbody id="tabelProperti"></tbody>
+    </table>
+</section>
+
+
+<section id="datatamu" class="page">
+    <h2>Data Tamu</h2>
+    <input id="tNama" type="text" placeholder="Nama Tamu">
+    <input id="tHp" type="text" placeholder="No HP">
+    <button onclick="tambahTamu()">Tambah Tamu</button>
+
+    <table border="1" width="100%" style="margin-top:10px;">
+        <thead>
+            <tr>
+                <th>Nama</th>
+                <th>No HP</th>
+            </tr>
+        </thead>
+        <tbody id="tabelTamu"></tbody>
+    </table>
+</section>
+
+
+<section id="check" class="page">
+    <h2>Check In Out</h2>
+
+    <input id="cNama" type="text" placeholder="Nama Tamu">
+
+    <select id="cStatus">
+        <option value="">Pilih Status</option>
+        <option value="Check In">Check In</option>
+        <option value="Check Out">Check Out</option>
+    </select>
+
+    <input id="cTanggal" type="date">
+
+    <button onclick="tambahCheck()">Simpan</button>
+
+    <table border="1" width="100%" style="margin-top:10px;">
+        <thead>
+            <tr>
+                <th>Nama</th>
+                <th>Status</th>
+                <th>Tanggal</th>
+            </tr>
+        </thead>
+        <tbody id="tabelCheck"></tbody>
+    </table>
+</section>
+
+
+
+<section id="pengeluaran" class="page">
+    <h2>Pengeluaran</h2>
+    <input id="pNama" type="text" placeholder="Nama Pengeluaran">
+    <input id="pJumlah" type="number" placeholder="Jumlah">
+    <button onclick="tambahPengeluaran()">Tambah</button>
+
+    <table border="1" width="100%" style="margin-top:10px;">
+        <thead>
+            <tr>
+                <th>Nama</th>
+                <th>Jumlah</th>
+            </tr>
+        </thead>
+        <tbody id="tabelPengeluaran"></tbody>
+    </table>
+</section>
+
+
+
+<section id="laporan" class="page">
+    <h2>Laporan</h2>
+    <p>Total Booking: <span id="totalBooking">0</span></p>
+    <button onclick="updateLaporan()">Perbarui</button>
+
+    <table border="1" width="80%" style="margin-top:10px;">
+        <thead>
+            <tr>
+                <th>Tempat</th>
+                <th>Nama</th>
+                <th>Tanggal Booking</th>
+                <th>Check In</th>
+                <th>Check Out</th>
+                <th>Jumlah Malam</th>
+                <th>Harga Awal</th>
+                <th>Harga Akhir</th>
+            </tr>
+        </thead>
+        <tbody id="tabelLaporan"></tbody>
+    </table>
+    <button onclick="downloadExcelSemua()">Download Laporan</button>
+
+</section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

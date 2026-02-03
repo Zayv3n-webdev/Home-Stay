@@ -1,0 +1,107 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    background: #0f172a;
+    color: #e5e7eb;
+}
+
+.header {
+    background: #020617;
+    padding: 16px;
+    border-bottom: 1px solid #1e293b;
+}
+
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #e5e7eb;
+    padding: 8px 12px;
+    background: #1e293b;
+    border-radius: 6px;
+}
+
+.container {
+    padding: 16px;
+}
+
+input, select {
+background: #0b1220;
+border: #334155;
+color: #e5e7eb;
+}
+
+#laporan button{
+    background-color: #2563eb;
+    color: #ffffff;
+}
+
+button{
+    background-color: #2563eb;
+}
+
+.page {
+    display: none;
+    background: #020617;
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid #1e293b;
+}
+
+.page.active {
+    display: block;
+}
+
+input, select, button {
+    width: 100%;
+    padding: 10px;
+    margin: 6px 0;
+    border-radius: 6px;
+}
+
+.hero-img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.gallery {
+    display: flex;
+    gap: 10px;
+}
+
+.gallery img {
+    width: 33%;
+    border-radius: 8px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+.card {
+    background: #020617;
+    border: 1px solid #1e293b;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+.card img {
+    width: 100%;
+    border-radius: 6px;
+}
+
+.logo-img {
+    width: 40px;
+    height: auto;
+}
+
